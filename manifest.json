@@ -10,9 +10,12 @@
         "default_popup": "popup.html"
     },
     "background": {
-        "scripts": ["socket.io.js", "reciveAlerts.js"]
+        "scripts": ["socket.io.js","background.js"]
     },
+    "web_accessible_resources": [
+        "alert.jpg"
+      ],
     "permissions": [
-        "activeTab"
+        "notifications"
     ]
 }
