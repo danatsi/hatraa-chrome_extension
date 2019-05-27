@@ -8,7 +8,8 @@
 //   alert(event.data);
 // };
 alert('in js');
-var socket = io.connect('http://192.168.56.1:8000');
-socket.on('connect', function() {
-  alert('HI');
+const socket = io.connect('http://10.0.70.207:8000');
+
+socket.on('missile', function(data) {
+  alert(data);
 });
