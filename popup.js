@@ -1,23 +1,9 @@
-document.addEventListener(
-  'DOMContentLoaded',
-  function() {
-    var checkPageButton = document.getElementById('checkPage');
-    let htraaSocket = new WebSocket('ws://echo.websocket.org');
-    // htraaSocket.onopen = function (evt) {
-    //     alert("connected")
-    // };
+$('#getEvents').click(() => {
+  const socket = io.connect('http://10.0.70.207:8000');
+  socket.emit('getAllEvents');
+});
 
-    htraaSocket.onmessage = function(event) {
-      alert(event.data);
-    };
-
-    checkPageButton.addEventListener(
-      'click',
-      function() {
-        alert(htraaSocket);
-      },
-      false,
-    );
-  },
-  false,
-);
+socket.on('allEvents', function(data) {
+  alert(data);
+  socket.close();
+});

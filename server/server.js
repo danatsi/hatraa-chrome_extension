@@ -1,7 +1,13 @@
 const io = require('socket.io'), server = io.listen(8000);
 
 let sequenceNumberByClient = new Map();
-
+const alert = {
+  incidentId: '109',
+  event: 'missile',
+  category: 'security',
+  areaDescription: 'cities',
+  polygon: '(109, 323, 104, 213)',
+};
 // event fired every time a new client connects:
 server.on('connection', socket => {
   console.info(`Client connected [id=${socket.id}]`);
@@ -19,7 +25,7 @@ server.on('connection', socket => {
 // sends each client its current sequence number
 setInterval(() => {
   for (const [client, sequenceNumber] of sequenceNumberByClient.entries()) {
-    client.emit('missile', 'hello from server: ');
+    client.emit('missile', alert);
     sequenceNumberByClient.set(client, sequenceNumber + 1);
   }
 }, 30000);
