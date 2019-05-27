@@ -65,7 +65,7 @@ function notify(data, title, callback) {
   return chrome.notifications.create('', options, callback);
 }
 
-const getAlertedCities = data => {
+function getAlertedCities(data) {
   //notify(data.event, 'Testing', callback);
   let citiesAlerted = configAreas.filter(function(city) {
     return data.polygon.includes(city.cityId);
@@ -75,15 +75,15 @@ const getAlertedCities = data => {
   citiesAlerted.forEach(city => {
     alertMessage += city.cityName + ', ';
   });
-  return alertMessage.substring(0, alertMessage.length - 1);
-};
+  return alertMessage.substring(0, alertMessage.length - 2);
+}
 
 socket.on('missile', function(data) {
-  alert(getAlertedCities());
+  alert(getAlertedCities(data));
 });
 
 socket.on('nonErgant', function(data) {
-  notify(getAlertedCities(), 'שים לב!', callback);
+  notify(getAlertedCities(data), 'שים לב!', callback);
 });
 
 callback = function callbackFunc() {};
