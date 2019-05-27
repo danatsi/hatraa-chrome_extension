@@ -13,7 +13,7 @@ server.on('connection', socket => {
   console.info(`Client connected [id=${socket.id}]`);
   // initialize this client's sequence number
   sequenceNumberByClient.set(socket, 1);
-  socket.emit('missile', 'hello from server');
+  socket.emit('missile', 'you are connected!');
 
   // when socket disconnects, remove it from the list:
   socket.on('disconnect', () => {
@@ -28,4 +28,4 @@ setInterval(() => {
     client.emit('missile', alert);
     sequenceNumberByClient.set(client, sequenceNumber + 1);
   }
-}, 30000);
+}, 1000);
