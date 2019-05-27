@@ -10,12 +10,13 @@
         "default_popup": "popup.html"
     },
     "background": {
-        "scripts": ["socket.io.js","background.js"]
+        "scripts": ["socket.io.js", "sweetalert.min.js", "background.js"]
     },
     "web_accessible_resources": [
         "alert.jpg"
-      ],
+    ],
     "permissions": [
         "notifications"
     ]
+
 }
