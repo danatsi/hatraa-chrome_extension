@@ -14,7 +14,9 @@ function notify(data, title, callback) {
 }
 
 socket.on('missile', function(data) {
-  notify(data, 'Testing', callback);
+  //   var obj = JSON.stringify(data);
+  //   var showObj = JSON.parse(obj);
+  notify(data.event, 'Testing', callback);
 });
 
 callback = function callbackFunc() {};
