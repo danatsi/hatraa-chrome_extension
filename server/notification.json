@@ -1,0 +1,7 @@
+{
+    "incidentId" : "109",
+    "event" : "missile" ,
+    "category" : "security",
+    "areaDescription" : "cities",
+    "polygon" : "(109, 323, 104, 213)"
+}
